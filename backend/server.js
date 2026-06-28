@@ -86,10 +86,10 @@ ${resumeText}`;
 
     res.json(analysis);
 
-  } catch (error) {
+  } } catch (error) {
     console.error('Error:', error.message);
-    res.status(500).json({ error: 'Failed to analyze resume' });
-  }
+    res.status(500).json({ error: 'Failed to analyze resume', details: error.message });
+}
 });
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
