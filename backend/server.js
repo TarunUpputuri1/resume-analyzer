@@ -86,7 +86,7 @@ ${resumeText}`;
 
     res.json(analysis);
 
-  } } catch (error) {
+  } catch (error) {
     console.error('Error:', error.message);
     res.status(500).json({ error: 'Failed to analyze resume', details: error.message });
 }
