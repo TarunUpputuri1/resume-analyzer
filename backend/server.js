@@ -3,6 +3,8 @@ const pdfParse = require('pdf-parse');
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+console.log('Key length:', process.env.GROQ_API_KEY?.length);
+console.log('Key starts with:', process.env.GROQ_API_KEY?.substring(0, 10));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -90,7 +92,7 @@ ${resumeText}`;
     console.error('Error:', error.message);
     res.status(500).json({ error: 'Failed to analyze resume', details: error.message });
 }
-});
+}); 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
