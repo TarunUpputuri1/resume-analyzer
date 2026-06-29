@@ -95,7 +95,18 @@ function App() {
   'https://backend-production-a7c9.up.railway.app/analyze',
   formData
 );
-      setResult(response.data);
+      const data = response.data;
+setResult({
+  ats_score: data.ats_score ?? 0,
+  jd_match_percentage: data.jd_match_percentage ?? 0,
+  skills_matching_percentage: data.skills_matching_percentage ?? 0,
+  skills_identified: data.skills_identified ?? [],
+  missing_skills: data.missing_skills ?? [],
+  review: data.review ?? 'No review available.',
+  recommended_job_roles: data.recommended_job_roles ?? [],
+  learning_roadmap: data.learning_roadmap ?? [],
+  estimated_fit_score: data.estimated_fit_score ?? 0,
+});
     } catch (err) {
   const detail = err.response?.data?.details || err.message || 'Unknown error';
   setError(`Failed to analyze resume: ${detail}`);
