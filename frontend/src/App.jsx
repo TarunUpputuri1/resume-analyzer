@@ -28,7 +28,8 @@ function App() {
 
     try {
       //const response = await axios.post('http://localhost:5000/analyze', formData, {
-      const response = await axios.post('http://localhost:5000/analyze', formData, {
+      //const response = await axios.post('http://localhost:5000/analyze', formData, {
+      const response = await axios.post('https://backend-production-a7c9.up.railway.app/analyze', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setResult(response.data);
