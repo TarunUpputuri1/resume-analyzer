@@ -98,8 +98,9 @@ function App() {
       );
       setResult(response.data);
     } catch (err) {
-      setError('Failed to analyze resume. Please try again.');
-    } finally {
+  const detail = err.response?.data?.details || err.message || 'Unknown error';
+  setError(`Failed to analyze resume: ${detail}`);
+} finally {
       setLoading(false);
     }
   };
