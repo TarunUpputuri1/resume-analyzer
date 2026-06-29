@@ -92,10 +92,9 @@ function App() {
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/analyze',
-        formData,
-        { headers: { 'Content-Type': 'multipart/form-data' } }
-      );
+  'https://backend-production-a7c9.up.railway.app/analyze',
+  formData
+);
       setResult(response.data);
     } catch (err) {
   const detail = err.response?.data?.details || err.message || 'Unknown error';
